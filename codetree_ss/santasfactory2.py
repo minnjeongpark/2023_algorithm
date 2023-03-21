@@ -133,7 +133,7 @@ def get_box_info(elem):
     print(a + 2 * b)
 
 
-def get_belt_info():
+def get_belt_info(elem):
     belt_id = elem[1]
     a = head[belt_id] if head[belt_id] != 0 else -1
     b = tail[belt_id] if tail[belt_id] != 0 else -1
