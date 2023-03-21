@@ -46,7 +46,7 @@ def move(elem):
     # 그대로 옮기기
     if num_gift[m_dst] == 0:
         head[m_dst] = head[m_src]
-        tail[m_dst] = head[m_src]
+        tail[m_dst] = tail[m_src]
     else:
         origin_head = head[m_dst]
         head[m_dst] = head[m_src]
@@ -97,7 +97,7 @@ def push_head(belt_num, box_num):
     else:
         origin_num = head[belt_num]
         prv[origin_num] = box_num
-        head[belt_num] = origin_num
+        head[belt_num] = box_num
         nxt[box_num] = origin_num
         num_gift[belt_num] += 1
 
@@ -120,7 +120,7 @@ def divide(elem):
     for _ in range(cnt // 2):
         box_ids.append(remove_head(m_src))
 
-    for i in range(len(box_ids) - 1, -1):
+    for i in range(len(box_ids)-1, - 1, -1):
         push_head(m_dst, box_ids[i])
 
     print(num_gift[m_dst])
@@ -134,7 +134,7 @@ def get_box_info(elem):
 
 
 def get_belt_info(elem):
-    belt_id = elem[1]
+    belt_id = elem[1] - 1
     a = head[belt_id] if head[belt_id] != 0 else -1
     b = tail[belt_id] if tail[belt_id] != 0 else -1
     c = num_gift[belt_id]
